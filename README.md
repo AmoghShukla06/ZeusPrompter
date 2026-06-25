@@ -43,6 +43,18 @@ If the `zeus` command isn't on your PATH yet, call it directly:
 
 The switch flips a flag in `~/.zeus-prompter/core/config.json` (and toggles Claude Code's `disableAllHooks`) — it takes effect in under a second with no tool restart.
 
+## Using it after install
+
+**There is no command to "optimize" a prompt — it's automatic.** Once installed and active (`zeus status` shows `Global: ACTIVE`), you simply use your AI tool as normal:
+
+1. **One-time:** in the Claude Code **VS Code extension**, reload the window (`Ctrl/Cmd+Shift+P` → *Developer: Reload Window*) so it reads the new hooks. The **CLI** picks them up on next launch.
+2. Open any project and type prompts the way you always do — even short, sloppy ones.
+3. ZeusPrompter quietly rewrites each prompt with your project context before the agent acts on it. You'll notice the agent responding to a sharper version of what you asked.
+
+The `zeus` commands (`on`/`off`/`status`/`model`/`key`/`test`) are **only for control** — you never need them for everyday use.
+
+> **`zeus` not found in your terminal?** PATH changes only apply to newly launched terminals, and editors like VS Code cache the environment at startup — fully restart the editor (not just the terminal tab). To use it immediately in the current shell, call it by full path: `python ~/.zeus-prompter/zeus.py status` (Windows: `%USERPROFILE%\.zeus-prompter\bin\zeus.cmd status`).
+
 ## How it works
 
 ```
@@ -53,11 +65,23 @@ your prompt ─▶ tool hook ─▶ optimizer.py ─▶ OpenRouter (qwen3-coder:
 session end ─▶ tool hook ─▶ updater.py ─▶ writes a session summary back to knowledge.json
 ```
 
-- **`optimizer.py`** runs on every prompt submit. It loads project context, asks the model to rewrite your prompt for clarity and cost, and returns it. Short prompts (< 20 chars) and slash commands pass through untouched.
+- **`optimizer.py`** runs on every prompt submit. It loads project context, asks the model to rewrite your prompt for clarity and cost, and returns it. Short prompts (< 20 chars), slash commands, and large pasted code blocks pass through untouched.
 - **`updater.py`** runs at session end. It reads your `git diff`/`git log`, summarizes what changed, and prepends an entry to the knowledge base so future prompts get smarter context.
 - **`scanner.py`** runs automatically the first time you use ZeusPrompter in a project, building the initial knowledge base.
 
-**If anything fails** — network down, API timeout, bad config — ZeusPrompter exits silently and your original prompt goes through unchanged. It never blocks your workflow.
+### A real example
+
+You don't change how you work — you keep typing short, lazy prompts. Say you type this in Claude Code:
+
+> add error handling to the optimizer api call so failures dont crash anything
+
+ZeusPrompter rewrites it, using what it knows about your project, into:
+
+> Add robust error handling to the optimizer API call (e.g., in `core/optimizer.py`). Wrap the request in a try/except block, catch network and response errors, log the exception, and return a safe fallback value so that any failure does not crash the application. Ensure the new handling respects existing code style and does not break the current test suite.
+
+Your agent never sees the vague version as the task — it works on the precise one. Importantly, ZeusPrompter **doesn't delete your words**: the agent receives *both* (`Original:` and `Optimized:`) plus a note to act on the optimized one, so nothing is lost.
+
+**If anything fails** — network down, API timeout, rate limit, bad config — ZeusPrompter exits silently and your original prompt goes through unchanged. It never blocks your workflow.
 
 ## Supported tools
 
