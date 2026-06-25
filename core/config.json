@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "openrouter_api_key": "",
+  "model": "qwen/qwen3-coder:free",
+  "tools": {
+    "claude_code": true,
+    "codex": true,
+    "cursor": true,
+    "antigravity": true
+  },
+  "optimizer": {
+    "min_prompt_length": 20,
+    "max_context_tokens": 2000,
+    "timeout_seconds": 25
+  },
+  "updater": {
+    "max_sessions_stored": 20,
+    "summarize_with_llm": true
+  },
+  "version": "1.0.0"
+}

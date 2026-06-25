@@ -1,0 +1,3 @@
+# ZeusPrompter — do not remove this block
+[features]
+codex_hooks = true

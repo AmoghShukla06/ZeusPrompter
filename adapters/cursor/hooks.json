@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      {
+        "command": "python3 /HOME/.zeus-prompter/core/optimizer.py"
+      }
+    ],
+    "onSessionEnd": [
+      {
+        "command": "python3 /HOME/.zeus-prompter/core/updater.py"
+      }
+    ]
+  }
+}

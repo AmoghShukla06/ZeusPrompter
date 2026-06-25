@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeAgentMessage": [
+      {
+        "command": "python3 /HOME/.zeus-prompter/core/optimizer.py"
+      }
+    ],
+    "onSessionComplete": [
+      {
+        "command": "python3 /HOME/.zeus-prompter/core/updater.py"
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "created_at": "2026-06-25T05:45:47.088813+00:00",
+    "last_updated": "2026-06-25T06:08:44.263824+00:00",
+    "zeus_version": "1.0.0"
+  },
+  "project": {
+    "name": "ZeusPrompter",
+    "stack": [],
+    "package_manager": null,
+    "test_command": "pytest",
+    "entry_points": [],
+    "description": "# \u26a1 ZeusPrompter\n\nZeusPrompter is a zero-config, globally-installed prompt optimizer that sits between you and your AI coding agent. Every time you submit a prompt in **Claude Code**, **Codex CLI**, **Cursor**, or **Google Antigravity**, ZeusPrompter intercepts it *before the AI sees it*, enriches it with live project context from a self-building knowledge database, and runs it through `qwen/qwen3-coder:free` on OpenRouter to produce a tighter, more precise, more cost-efficient prompt \u2014 then han"
+  },
+  "file_tree_summary": {
+    ".": {
+      "dirs": [
+        "adapters",
+        "core",
+        "tests"
+      ],
+      "files": [
+        "README.md",
+        "install.py",
+        "uninstall.py",
+        "zeus.py"
+      ]
+    },
+    "adapters": {
+      "dirs": [
+        "antigravity",
+        "claude_code",
+        "codex",
+        "cursor"
+      ],
+      "files": []
+    },
+    "adapters/antigravity": {
+      "dirs": [],
+      "files": [
+        "hooks.json"
+      ]
+    },
+    "adapters/claude_code": {
+      "dirs": [],
+      "files": [
+        "hooks_fragment.json"
+      ]
+    },
+    "adapters/codex": {
+      "dirs": [],
+      "files": [
+        "config_fragment.toml",
+        "hooks.json"
+      ]
+    },
+    "adapters/cursor": {
+      "dirs": [],
+      "files": [
+        "hooks.json"
+      ]
+    },
+    "core": {
+      "dirs": [],
+      "files": [
+        "config.json",
+        "optimizer.py",
+        "scanner.py",
+        "tester.py",
+        "updater.py"
+      ]
+    },
+    "tests": {
+      "dirs": [],
+      "files": [
+        "test_kill_switch.sh",
+        "test_optimizer.py",
+        "test_scanner.py",
+        "test_updater.py"
+      ]
+    }
+  },
+  "recent_sessions": [
+    {
+      "date": "2026-06-25T06:08:44.263824+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    },
+    {
+      "date": "2026-06-25T06:06:09.573389+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    },
+    {
+      "date": "2026-06-25T05:59:20.168647+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    },
+    {
+      "date": "2026-06-25T05:56:20.400619+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    },
+    {
+      "date": "2026-06-25T05:49:53.417252+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    },
+    {
+      "date": "2026-06-25T05:47:57.459849+00:00",
+      "session_id": "7a410298-82f3-4902-a72d-99a9d2284efd",
+      "prompt_summary": "Session ended (no git changes detected).",
+      "files_changed": [],
+      "git_commit": ""
+    }
+  ],
+  "known_patterns": {},
+  "open_issues": [],
+  "error_patterns": []
+}
